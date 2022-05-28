@@ -24,12 +24,12 @@
       focus:border-blue-600 focus:outline-none ' %>
     </div>
     <div class="field">
-      <%= form.text_field :icon,placeholder:'Icon', class:'form-control block w-full py-4
+      <%= form.text_field :icon,placeholder:'Icon [Name initials eg: Y, NO, P]', class:'form-control block w-full py-4
       placeholder:text-gray-300 focus:text-gray-700 focus:bg-white
       focus:border-blue-600 focus:outline-none' %>
     </div>
     <div class="field">
-      <%= form.text_field :color ,placeholder:'Color', class:'form-control block w-full py-4
+      <%= form.text_field :color ,placeholder:'Color [eg: yellow, red, green, ....]', class:'form-control block w-full py-4
       placeholder:text-gray-300 focus:text-gray-700 focus:bg-white
       focus:border-blue-600 focus:outline-none' %>
     </div>
@@ -42,7 +42,7 @@
       </h2>
 
       <ul>
-        <% group.errors.each do |error| %>
+        <% @group.errors.each do |error| %>
         <li><%= error.full_message %></li>
         <% end %>
       </ul>
