@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+
+<div
+  class="flex items-center justify-between p-6 bg-sky-600 w-full text-white absolute inset-x-0 top-0"
+>
+  <div class="flex-1 flex justify-center items-center"><h4>CATEGORIES</h4></div>
+   <div>
+      <a href="<%= destroy_user_session_path %>">
+        <box-icon name="log-in-circle" color="white"></box-icon>
+      </a>
+    </div>
+</div>
+<div class="mt-24">
+  <% @groups.each do |group| %>
+
+  <div class="px-4">
+    <div
+      class="flex w-full p-4 bg-white border-2 border-gray-100 gap-4 items-end mb-4"
+    >
+    <%=%>
+      <div class="w-20 h-20 bg-<%=group.color%>-300 flex items-center justify-center font-bold text-white uppercase">
+      <%= group.icon%>
+      </div>
+      <div class="flex-1">
+        <div class="flex flex-col text-gray-400 divide-y-2 divide-gray-100">
+          <div class="flex justify-between items-center flex-1 pb-4">
+          <a href="<%= group_entities_path(group.id) %>">
+            <p class=""><%= group.name%></p>
+            </a>
+            <p class="text-bold text-black">$<%= group.total_amount || 0 %></p>
+          </div>
+          <div class="h-1/4 pt-2 flex justify-between items-center">
+          <p class="text-xs"><%= group.created_at %></p>
+            <%= button_to "Delete", group, method: :delete, class:'text-red-500 uppercase text-xs font-bold' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+  </div>
+<div
+  class="flex items-center p-4 bg-green-500 w-full text-white absolute inset-x-0 bottom-0"
+>
+  <div class="w-full flex justify-center">
+    <%= link_to "Add Category", new_group_path, class:'w-full text-center
+    inline-block px-6 py-4 border-2 border-white text-white leading-tight
+    uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0
+    transition duration-150 ease-in-out' %>
+  </div>
+</div>
+
