@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="flex flex-col absolute inset-x-0 top-0">
+<div class="flex flex-col fixed inset-x-0 top-0">
   <div
     class="p-6 bg-sky-600 flex items-center justify-between w-full text-white"
   >
@@ -14,36 +14,40 @@
   <div class="bg-white border-b-2 border-gray-100 p-4">
     <div class="flex flex-col text-gray-600 divide-y divide-gray-100">
       <div class="flex justify-between items-center flex-1 pb-4">
-        <p class="">Category Name</p>
-        <p class="text-bold text-black text-lg">$0.00</p>
+        <p class=""><%=@group.name%></p>
+        <p class="text-bold text-black text-lg">$<%= @group.total_amount || 0 %></p>
       </div>
-      <div class="h-1/4 pt-2"><p class="text-xs">45 transactions</p></div>
+      <div class="h-1/4 pt-2"><p class="text-xs"><%=@entities.length%> Transactions</p></div>
     </div>
   </div>
 </div>
-
+<div class="my-48">
 <div class="px-4">
+  <% @entities.each do |entity| %>
   <div
-    class="flex w-full p-4 bg-white border-2 border-gray-100 gap-4 items-end mt-48"
+    class="flex w-full p-4 bg-white border-2 border-gray-100 gap-4 items-end mb-4 items-center"
   >
-    <div class="w-20 h-20 bg-yellow-300"></div>
+    <div class="w-10 h-10 bg-sky-600 flex items-center justify-center font-bold text-white">T</div>
     <div class="flex-1">
       <div class="flex flex-col text-gray-400 divide-y-2 divide-gray-100">
         <div class="flex justify-between items-center flex-1 pb-4">
-          <p class="">Transaction_item</p>
-          <p class="text-bold text-black">$0.00</p>
+          <p class=""><%= entity.name%></p>
+          <p class="text-bold text-black">$<%= entity.amount%></p>
         </div>
-        <div class="h-1/4 pt-2">
+        <div class="h-1/4 pt-2 flex justify-between items-center">
           <p class="text-xs">
-            <span class="italic">created on </span>12 Apr 2000
+            <span class="italic">created on </span><%= entity.created_at%>
           </p>
+          <%= button_to "Delete", group_entity_path(group_id: @group.id, id:entity.id), method: :delete, class:'text-red-500 uppercase text-xs font-bold' %>
         </div>
       </div>
     </div>
   </div>
+   <% end%>
+</div>
 </div>
 <div
-  class="flex items-center p-4 bg-green-500 w-full text-white absolute inset-x-0 bottom-0"
+  class="flex items-center p-4 bg-green-500 w-full text-white fixed inset-x-0 bottom-0"
 >
   <div class="w-full flex justify-center">
     <%= link_to "Add Transaction", new_group_entity_path, class:'w-full
