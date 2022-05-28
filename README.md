@@ -10,7 +10,7 @@
 
 ## Video
 
-- [Video]()
+- [Video](https://www.loom.com/share/de8df450f1064c408823aaf2a647e40d)
 
 ## Built With
 
