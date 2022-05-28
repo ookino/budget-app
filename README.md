@@ -17,7 +17,7 @@
 - Ruby
 - Ruby on Rails
 - Postgresql
-- Bootstrap
+- Tailwind CSS
 
 ## Getting Started
 
