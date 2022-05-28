@@ -1,0 +1,53 @@
+<%= form_for(@entity, :url => group_entities_path, :html => { :method => :post
+}) do |form| %>
+<div class="flex flex-col h-screen items-center">
+  <div
+    class="flex items-center justify-between p-6 bg-sky-600 w-full text-white"
+  >
+    <div class="flex-1">
+      <a href="<%= group_entities_path %>">
+        <box-icon name="arrow-back" color="white"></box-icon>
+      </a>
+    </div>
+    <div class="flex-1 flex justify-center"><h4>NEW TRANSACTION</h4></div>
+    <div class="flex-1 flex justify-end">
+      <%= form.submit "Add Transaction", class:'text-white text-sm
+      hover:text-gray-100 transition duration-300 ease-in-out' %>
+    </div>
+  </div>
+  <div
+    class="bg-white mt-6 w-full border-y-2 border-gray-100 divide-y-2 divide-gray-100 pl-4"
+  >
+    <div class="field">
+      <%= form.text_field :name, autofocus: true, placeholder:'Name',
+      class:'form-control block w-full py-4 placeholder:text-gray-300
+      focus:text-gray-700 focus:bg-white focus:border-blue-600
+      focus:outline-none ' %>
+    </div>
+    <div class="field">
+      <%= form.number_field :amount,placeholder:'Amount', class:'form-control
+      block w-full py-4 placeholder:text-gray-300 focus:text-gray-700
+      focus:bg-white focus:border-blue-600 focus:outline-none' %>
+    </div>
+    <div class="field">
+      <%= form.date_field :date ,placeholder:'Date', class:'form-control block
+      w-full py-4 pr-4 text-gray-300 focus:text-gray-700 focus:bg-white
+      focus:border-blue-600 focus:outline-none' %>
+    </div>
+  </div>
+  <% if @entity.errors.any? %>
+  <div style="color: red">
+    <h2>
+      <%= pluralize(@entity.errors.count, "error") %> prohibited this entity
+      from being saved:
+    </h2>
+
+    <ul>
+      <% @entity.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</div>
+<% end %>
