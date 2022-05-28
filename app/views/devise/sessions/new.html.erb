@@ -1,0 +1,38 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do
+|f| %>
+<div class="flex flex-col h-screen items-center">
+  <div
+    class="flex items-center justify-between p-6 bg-sky-600 w-full text-white"
+  >
+    <div class="flex-1">
+      <a href="<%= splash_index_path %>">
+        <box-icon name="arrow-back" color="white"></box-icon>
+      </a>
+    </div>
+    <div class="flex-1 flex justify-center"><h4>LOGIN</h4></div>
+    <div class="flex-1 flex justify-end">
+      <%= f.submit "Log In", class:'text-white text-sm hover:text-gray-100
+      transition duration-300 ease-in-out' %>
+    </div>
+  </div>
+  <div
+    class="bg-white mt-6 w-full border-y-2 border-gray-100 divide-y-2 divide-gray-100 pl-4"
+  >
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",
+      placeholder:'Email', class:'form-control block w-full py-4
+      placeholder:text-gray-300 focus:text-gray-700 focus:bg-white
+      focus:border-blue-600 focus:outline-none ' %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password",
+      placeholder:'Password', class:'form-control block w-full py-4
+      placeholder:text-gray-300 focus:text-gray-700 focus:bg-white
+      focus:border-blue-600 focus:outline-none' %>
+    </div>
+  </div>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' &&
+  controller_name != 'registrations' %> <%= link_to "Forgot password ?",
+  new_password_path(resource_name), class:'mt-4 text-gray-300'%> <% end %>
+</div>
+<% end %>
