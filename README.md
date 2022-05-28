@@ -33,7 +33,7 @@
 - Make sure you have Ruby on Rails set up properly on your computer
 
 ```sh
-  git git@github.com:sja-thedude/Budget-App.git
+  git git@github.com:yaseerokino/budget-app.git
 ```
 
 ```sh
@@ -76,9 +76,9 @@ To start Budget app you need to first `signup`
 
 ## Author
 
-👤 **Syeda Juveria Afreen**
+👤 **Yaseer Okino**
 
-- GitHub: [@sja-thedude](https://github.com/yaseerokino)
+- GitHub: [yaseerokino](https://github.com/yaseerokino)
 - LinkedIn: [Yaseer Okino](https://linkedin.com/in/yaseerokino)
 
 ## 🤝 Contributing
